@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="formulaire"> 
+         {{ form_start(panierForm) }}
+            {{ form_widget(panierForm.user) }}
+            <br>
+            <button type="submit" class="btn">{{'commande.buttonone'|trans}}</button>
+        {{ form_end(panierForm) }}
+
+        <br><br>
+        <h2>{{'commande.titletwo'|trans}}</h2>
+
+        {% for panier in paniers %}
+            <h3>{{'commande.order'|trans}} {{panier.id}} </h3>
+
+            <table class="table">
+            <tr>
+                <th>{{'commande.name'|trans}}</th>
+                <th>{{'commande.price'|trans}}</th>
+                <th>{{'commande.recap'|trans}}</th>
+            </tr>
+            <tr>
+                <th>{{panier.user.nom}}</th>
+                <th>{{panier.TotalPrix}}€</th>
+                <th>
+                    <button><a href="{{ path('app_contenu_commande_show', {'id': panier.id}) }}" class="btn">{{'commande.buttontwo'|trans}}</a></button>
+                </th>
+
+            </tr>
+            </table>
+
+            {% for item in panier.contenuPaniers %}
+            <table class="table">
+                <tr>
+                    <th>{{'paniers.name'|trans}}</th>
+                    <th>{{'paniers.price'|trans}}</th>
+                    <th>{{'paniers.quantity'|trans}}</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>{{ item.produit.nom }}</td>
+                    <td>{{ item.produit.prix }}</td>
+                    <td>{{ item.quantite }}</td>
+                    <td>{{ item.produit.prix * item.quantite }}</td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+            
+        </table>
+    </div>
+{% endblock %}

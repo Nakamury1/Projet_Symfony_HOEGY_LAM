@@ -1,20 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MonCompteController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="formulaire"> 
+        <h1>{{'commande.titleone'|trans}}</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        {{ form_errors(registrationForm) }}
+        
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.nom) }}
+            {{ form_row(registrationForm.prenom) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Password'
+            }) }}
+            {{ form_row(registrationForm.agreeTerms) }}
+            <br>
+            <button type="submit" class="btn">{{'commande.buttonone'|trans}}</button>
+        {{ form_end(registrationForm) }}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/laragon/www/Projet_Symfony/src/Controller/MonCompteController.php</code></li>
-        <li>Your template at <code>C:/laragon/www/Projet_Symfony/templates/mon_compte/index.html.twig</code></li>
-    </ul>
-</div>
+        <br>
+        {% for panier in paniers %}
+            <a href="{{ path('app_mon_compte_show', {'id': panier.id})}}">Voir l'historique de mes commandes</a>
+        {% endfor %}
+        
+    </div>
+
+
 {% endblock %}

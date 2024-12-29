@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block body %}
+<div class="formulaire">
+    <h1>{{'adherent.title'|trans}}</h1>
+        <table class="table">
+            <tr>
+                <th>Date</th>
+                <th>{{'adherent.mail'|trans}}</th>
+                <th>{{'adherent.lastname'|trans}}</th>
+                <th>{{'adherent.firstname'|trans}}</th>
+                <th>{{'adherent.role'|trans}}</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for user in users %}
+                <tr>
+                    <td>{{ now|date("d/m/Y") }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>
+                        {% for role in user.roles %}
+                            {{ role }}
+                        {% endfor %}
+                    <td>
+                        {% if ('ROLE_ADMIN' in user.roles) == false %}
+
+                            {% if ('ROLE_USER' in user.roles == false ) %}
+                                <a onclick="return confirm('admin ?')" href="{{ path('app_user_to_admin', {'id': user.id}) }}">{{'adherent.buttonone'|trans}}</a>
+                                <a onclick="return confirm('super admin ?')" href="{{ path('app_admin_to_super_admin', {'id': user.id}) }}">{{'adherent.buttontwo'|trans}}</a>
+                            {% else %}
+                                <a onclick="return confirm('admin ?')" href="{{ path('app_user_remove_admin_role', {'id': user.id}) }}">{{'adherent.buttonthree'|trans}}</a>
+                                <a onclick="return confirm('super admin ?')" href="{{ path('app_admin_to_super_admin', {'id': user.id}) }}">{{'adherent.buttonfour'|trans}}</a>
+                            {% endif %}
+                            
+                            <a href="{{ path('app_user_remove', {'id':user.id}) }}">{{'adherent.buttonfive'|trans}}</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% else %}
+                <p>{{'adherent.message'|trans}}</p>
+            {% endfor %}
+        </table>
+</div>
+
+{% endblock %}

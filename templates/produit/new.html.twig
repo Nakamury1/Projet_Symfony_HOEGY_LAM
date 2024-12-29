@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Ajout {% endblock %}
+
+{% block body %}
+    <div class="formulaire">
+        <h1>{{'produits.titlethree'|trans}}</h1>
+
+        {{ include('produit/_form.html.twig') }}
+
+        <a href="{{ path('app_produit_index') }}">{{'return.message'|trans}}</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les produits{% endblock %}
+
+{% block body %}
+
+    <div class="formulaire">
+        <h1>{{'produits.titleone'|trans}}</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>{{'produits.name'|trans}}</th>
+                    <th>{{'produits.content'|trans}}</th>
+                    <th>{{'produits.price'|trans}}</th>
+                    <th>Stock</th>
+                    <th>{{'produits.image'|trans}}</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for produit in produits %}
+                <tr>
+                    <td>{{ produit.id }}</td>
+                    <td>{{ produit.nom }}</td>
+                    <td>{{ produit.description }}</td>
+                    <td>{{ produit.prix }}</td>
+                    <td>
+                    {% if produit.stock > 0 %}
+                        {{ produit.stock }}
+                    {% else %}
+                        <p>{{'produits.stock'|trans}}</p>
+                    {% endif %}
+                    </td>
+                    <td>{{ produit.photo }}</td>
+                    <td>
+                        <button><a href="{{ path('app_produit_show', {'id': produit.id}) }}" class="btn">{{'produits.buttonone'|trans}}</a></button>
+                        <button><a href="{{ path('app_produit_edit', {'id': produit.id}) }}" class="btn">{{'produits.buttontwo'|trans}}</a></button>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">{{'produits.message'|trans}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <button><a href="{{ path('app_produit_new') }}" class="btn">{{'produits.buttonthree'|trans}}</a></button>
+    </div>
+{% endblock %}
