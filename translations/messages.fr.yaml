@@ -1,0 +1,82 @@
+return:
+  message: Retourner sur la page des produits
+  messagetwo: Retourner sur la page d'accueil
+
+navbar:
+  utilisateurs: UTILISATEURS
+  accueil: ACCUEIL
+  produit: PRODUITS
+  panier: MON PANIER
+  compte: MON COMPTE
+  connexion: CONNEXION
+
+home:
+  title: TOUS NOS PRODUITS
+  fiche: Voir la fiche
+  button: Ajouter un produit
+
+log:
+  messageone: Tu es connecté en tant que
+  messagetwo: Déconnexion
+  title: Connexion
+  mail: Adresse mail
+  password: Mot de passe
+  button: Se connecter
+  lienIns : Vous n'avez pas de compte ? Inscrivez-vous ici !
+
+sign:
+  title: Inscription
+  button: S'inscrire
+
+adherent:
+  title: Tous les utilisateurs
+  date: Date
+  mail: Adresse mail
+  lastname: Nom
+  firstname: Prénom
+  role: Rôle
+  message: Pas d'utilisateurs encore inscrits
+  buttonone: Ajouter comme admin
+  buttontwo: Ajouter comme super admin
+  buttonthree: Retirer rôle admin
+  buttonfour: Retirer rôle super admin
+  buttonfive: Supprimer
+
+
+produits:
+  titleone: TOUS LES PRODUITS
+  titletwo: Modifier la page du produit
+  titlethree: Fiche du produit
+  titlefour: Ajouter un produit
+  name: Nom
+  content: Description
+  price: Prix
+  image: Photo
+  stock: Stock épuisé
+  message: Pas d'article sur le site
+  buttonone: Voir le produit
+  buttontwo: Modifier le produit
+  buttonthree: Ajouter un produit
+  buttonfour: Supprimer le produit
+  buttonfive: Ajouter au panier
+  buttonsix: Se connecter pour ajouter au panier
+
+paniers:
+  title: Mon panier
+  name: Nom du produit
+  price: Prix
+  quantity: Quantité
+  message: Votre panier est vide
+  buttonone: Valider votre commande
+  buttontwo: Supprimer votre commande
+  buttonthree: Supprimer le produit
+
+commande:
+  titleone: Mon compte
+  titletwo: Historique de mes commandes
+  buttonone: Mettre à jour mes informations
+  buttontwo: Voir
+  order: Commande n°
+  name: Nom de la commande
+  price: Prix de la commande
+  recap: Récapitulatif de la commande

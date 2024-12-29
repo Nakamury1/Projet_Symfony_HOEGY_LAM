@@ -1,3 +1,322 @@
-body {
-    background-color: white;
+/*---------------------------------------------- Ensemble de la page ----------------------------------------------*/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
+}
+
+h1{
+	font-size: 45px;
+}
+
+h2{
+	font-size: 30px;
+}
+
+h3{
+	font-size: 25px;
+}
+
+p{
+	margin: 10px 0;
+}
+
+/*-----------------------Boutons -----------------*/
+button{
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 10px 20px;
+	background-color: #FEFEE2;
+}
+
+button:hover{
+	background-color: green;
+}
+
+.btn{
+	color: black;
+}
+
+.btn:hover{
+	background-color: green;
+	color: white;
+}
+
+/*---------------------------------------------- Barre de navigation -----------------------------------------------*/
+.navigation{
+	display: flex;
+	align-items: center;
+	padding: 0px 20px;
+	background: #FEFEE2;
+}
+
+.navigation a{
+	color: #405e06;
+    font-weight: bold;
+}
+
+.menu{
+	display: flex;
+	align-items: center;
+}
+
+.menu li{
+	padding: 5px 10px;
+	font-size: 22px;
+	margin: 0 2px;
+}
+
+.logo{
+	flex: 1;
+}
+
+.logo img{
+	width: 100px;
+}
+
+/*--------------------------------------------------Page d'accueil ---------------------------------------------------*/
+.accueil{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	margin: 30px 0 0 0;
+}
+
+.all_produits{
+	display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+	padding: 0 40px;
+	margin: 20px 0;
+}
+
+.OneProduit{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid black;
+	border-radius: 20px;
+}
+
+.OneProduit_img{
+	width: 200px;
+}
+
+.OneProduit_text{
+	padding: 20px;
+	background-color: #FEFEE2;
+	border-radius: 0 0 20px 20px;
+	border-top: 2px solid black;
+}
+
+.price_button{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/*------------------------------------ Page de la fiche du produit -------------------------------------------*/
+
+.ficheproduit{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 50px 0 0 0;
+}
+
+.FicheProduit_img{
+	width: 250px;
+	border: 3px solid black;
+	border-radius: 20px;
+}
+
+.FicheProduit_text{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 0 30px;
+	width: 75%;
+}
+
+.description{
+	font-size: 20px;
+	margin: 10px 0;
+}
+
+.price{
+	font-weight: bold;
+	color: #405e06;
+	font-size: 45px;
+	margin: 10px 0;
+}
+
+.buttons_admin{
+	display: flex;
+	flex-direction: row;
+	margin: 20px 0;
+}
+
+/*------------------------------------ Ajouter un produit -------------------------------------------*/
+
+.formulaire{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 30px 0 0 0;
+}
+
+.blockform{
+	display: flex;
+	flex-direction: column;
+	margin: 10px 0;
+}
+
+.retour{
+	margin: 20px 0 0 0;
+}
+
+/*------------------------------------ Tous les produits / INDEX -------------------------------------------*/
+
+.table{
+	margin: 20px 0;
+}
+
+th{
+	padding: 0 30px;
+	border-bottom: 2px solid black;
+}
+
+td{
+	padding: 0 30px;
+	border-bottom: 2px solid black;
+}
+
+
+
+
+
+/* public/css/commande.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+/* Styles pour le tableau du panier */
+.cart-table {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+}
+
+.cart-table th {
+    background: #f3f4f6;
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+}
+
+.cart-table th:last-child,
+.cart-table td:last-child {
+    text-align: right;
+}
+
+.cart-table td {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.cart-total {
+    font-weight: bold;
+    background: #f3f4f6;
+}
+
+/* Bouton de paiement */
+.pay-button {
+    background: #16a34a;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    float: right;
+}
+
+.pay-button:hover {
+    background: #15803d;
+}
+
+/* Styles pour l'historique des commandes */
+.order-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.order-number {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.order-date {
+    color: #666;
+}
+
+.order-total {
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+.order-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+}
+
+.status-paid {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.order-items {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.empty-message {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
 }

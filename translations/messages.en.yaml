@@ -1,0 +1,80 @@
+return:
+  message: Return to the product page
+  messagetwo: Return to the homepage
+
+navbar:
+  utilisateurs: USERS
+  accueil: HOME
+  produit: PRODUCTS
+  panier: MY CART
+  compte: MY ACCOUNT
+  connexion: LOG IN
+
+home:
+  title: ALL PRODUCTS
+  fiche: See the record
+  button: Add a product
+
+log:
+  messageone: You are logged in as
+  messagetwo: Logout
+  title: Log In
+  mail: Email
+  password: Password
+  button: Login
+  lienIns : You don't have an account ? Sign in !
+
+sign:
+  title: Sign in
+  button: Sign up
+
+adherent:
+  title: All users
+  mail: Email
+  lastname: Lastname
+  firstname: Firstname
+  role: Role
+  message: No users yet registered
+  buttonone: Add admin
+  buttontwo: Add super admin
+  buttonthree: Remove admin role
+  buttonfour: Remove super admin role
+  buttonfive: Delete
+
+produits:
+  titleone: ALL PRODUCTS
+  titletwo: Update the product page
+  titlethree: Product record
+  titlefour: Add a product
+  name: Name
+  content: Content
+  price: Price
+  image: Image
+  stock: No stock
+  message: No records found
+  buttonone: See the product
+  buttontwo: Update the product
+  buttonthree: Add a product
+  buttonfour: Delete the product
+  buttonfive: Add in the cart
+  buttonsix:  Log in to add in the cart
+
+paniers:
+  title: My cart
+  name: Product name
+  price: Price
+  quantity: Quantity
+  message: Your cart is empty
+  buttonone: Validate your order
+  buttontwo: Delete your order
+  buttonthree: Delete the product
+
+commande:
+  titleone: My account
+  titletwo: Order history
+  buttonone: Update informations
+  buttontwo: See
+  order: Order n°
+  name: Order name
+  price: Order price
+  recap: Order summary 
