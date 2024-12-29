@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FicheProduit{% endblock %}
+
+{% block body %}
+    <div class="formulaire"> 
+        <h1>Récapitulatif de votre commande du {{ panier.dateachat|date('d/m/Y') }}</h1>
+
+        <div class="recap-commande">
+            {% for contenu in contenuPanier %}
+                <div class="produit">
+                    <h3>{{ contenu.produit.nom }}</h3>
+                    <p>Quantité : {{ contenu.quantite }}</p>
+                    <p>Prix unitaire : {{ contenu.produit.prix }}€</p>
+                    <p>Sous-total : {{ contenu.produit.prix * contenu.quantite }}€</p>
+                </div>
+            {% endfor %}
+
+            <div class="total">
+                <h2>Total de la commande : {{ panier.totalPrix }}€</h2>
+            </div>
+        </div>
+
+            
+    </div>
+{% endblock %}

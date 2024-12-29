@@ -1,20 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PanierController!{% endblock %}
+{% block title %}Panier{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div class="formulaire">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>{{'paniers.title'|trans}}</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/laragon/www/Projet_Symfony/src/Controller/PanierController.php</code></li>
-        <li>Your template at <code>C:/laragon/www/Projet_Symfony/templates/panier/index.html.twig</code></li>
-    </ul>
+        <table class="table">
+            <tr>
+                <th>{{'paniers.name'|trans}}</th>
+                <th>{{'paniers.price'|trans}}</th>
+                <th>{{'paniers.quantity'|trans}}</th>
+                <th>Total</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.produit.nom }}</td>
+                    <td>{{ item.produit.prix }}</td>
+                    <td>{{ item.quantite }}</td>
+                    <td>{{ item.produit.prix * item.quantite }}</td>
+                    <td>
+                        <a href="{{ path('app_panier_produit_remove', {'id': item.produit.id}) }}">{{'paniers.buttonthree'|trans}}</a>
+                    </td>
+                </tr>
+            {% else %}
+                <p>{{'paniers.message'|trans}}</p>
+            {% endfor %}
+        </table>
+        
+        {% if total > 0 %}
+            <h2>Total: {{ total }}€</h2>
+            <div class="buttons_admin">
+                <button><a href="{{ path('app_contenu_commande_show') }}" class="btn">{{'paniers.buttonone'|trans}}</a></button>
+                <button><a href="{{ path('app_panier_remove') }}" class="btn">{{'paniers.buttontwo'|trans}}</a></button>
+            </div>
+        {% endif %}
+        <a href="{{ path('app_produit_index') }}">{{'return.message'|trans}}</a>
 </div>
+
 {% endblock %}

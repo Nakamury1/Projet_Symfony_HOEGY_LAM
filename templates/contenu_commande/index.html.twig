@@ -1,20 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContenuCommandeController!{% endblock %}
+{% block title %}Récapitulatif{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="formulaire">
+        <h1>Récapitulatif de ma commande</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+            <table class="table">
+            <tr>
+                <th>Nom du produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+            </tr>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/laragon/www/Projet_Symfony/src/Controller/ContenuCommandeController.php</code></li>
-        <li>Your template at <code>C:/laragon/www/Projet_Symfony/templates/contenu_commande/index.html.twig</code></li>
-    </ul>
-</div>
+            {% for item in items %}
+                <tr>
+                    <td>{{ item.produit.nom }}</td>
+                    <td>{{ item.produit.prix }}</td>
+                    <td>{{ item.quantite }}</td>
+                    <td>{{ item.produit.prix * item.quantite }}</td>
+                </tr>
+            {% else %}
+                <p>Votre panier est vide</p>
+            {% endfor %}
+        </table>
+
+        {{ form_start(panierForm) }}
+            {{ form_row(panierForm.etat) }}
+            <button class="btn">{{ button_label|default('Save') }}</button>
+        {{ form_end(panierForm) }}
+
+        <div>
+            <h3>Montant de la commande: {{ total }}€</h3>
+            <h3>Date de la commande: {{ now|date('d/m/Y') }}</h3>
+        </div>
+
+        <button><a href="{{ path('app_mon_compte') }}" class="btn">retourner sur mon profil</a></button>
+    </div>
 {% endblock %}
