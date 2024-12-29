@@ -14,41 +14,43 @@ class ContenuPanier
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $produit = null;
+    #[ORM\ManyToOne(inversedBy: 'contenuPaniers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Produit $produit = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $panier = null;
+    #[ORM\ManyToOne(inversedBy: 'contenuPaniers')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Panier $panier = null;
 
     #[ORM\Column]
-    private ?int $Quantite = null;
+    private ?int $quantite = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
+    #[ORM\Column(type: 'datetime')]
+    private \DateTimeInterface $dateajout;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getProduit(): ?string
+    public function getProduit(): ?Produit
     {
         return $this->produit;
     }
 
-    public function setProduit(string $produit): static
+    public function setProduit(?Produit $produit): static
     {
         $this->produit = $produit;
 
         return $this;
     }
 
-    public function getPanier(): ?string
+    public function getPanier(): ?Panier
     {
         return $this->panier;
     }
 
-    public function setPanier(string $panier): static
+    public function setPanier(?Panier $panier): static
     {
         $this->panier = $panier;
 
@@ -57,24 +59,24 @@ class ContenuPanier
 
     public function getQuantite(): ?int
     {
-        return $this->Quantite;
+        return $this->quantite;
     }
 
-    public function setQuantite(int $Quantite): static
+    public function setQuantite(int $quantite): static
     {
-        $this->Quantite = $Quantite;
+        $this->quantite = $quantite;
 
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDateajout(): ?\DateTimeInterface
     {
-        return $this->date;
+        return $this->dateajout;
     }
 
-    public function setDate(\DateTimeInterface $date): static
+    public function setDateajout(\DateTimeInterface $dateajout): static
     {
-        $this->date = $date;
+        $this->dateajout = $dateajout;
 
         return $this;
     }
